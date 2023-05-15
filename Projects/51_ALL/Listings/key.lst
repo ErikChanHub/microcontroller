@@ -1,0 +1,38 @@
+C51 COMPILER V9.60.7.0   KEY                                                               05/14/2023 23:58:47 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE KEY
+OBJECT MODULE PLACED IN .\Objects\key.obj
+COMPILER INVOKED BY: D:\Keil_v4\C51\BIN\C51.EXE key.c COMPACT OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listin
+                    -gs\key.lst) TABS(2) OBJECT(.\Objects\key.obj)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          #include "delay.h"
+   3          
+   4          unsigned char get_key()
+   5          {
+   6   1        unsigned char key_num = 0;
+   7   1        
+   8   1        if(P3_1==0){delay(20); while(P3_1==0); delay(20);key_num=1;}
+   9   1        if(P3_0==0){delay(20); while(P3_0==0); delay(20);key_num=2;}
+  10   1        if(P3_2==0){delay(20); while(P3_2==0); delay(20);key_num=3;}
+  11   1        if(P3_3==0){delay(20); while(P3_3==0); delay(20);key_num=4;}
+  12   1        
+  13   1        return key_num;
+  14   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    139    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----       1
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

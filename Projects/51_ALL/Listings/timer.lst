@@ -1,0 +1,87 @@
+C51 COMPILER V9.60.7.0   TIMER                                                             05/14/2023 23:51:31 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE TIMER
+OBJECT MODULE PLACED IN .\Objects\timer.obj
+COMPILER INVOKED BY: D:\Keil_v4\C51\BIN\C51.EXE timer.c COMPACT OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\List
+                    -ings\timer.lst) TABS(2) OBJECT(.\Objects\timer.obj)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          #include "LCD1602.h"
+   3          
+   4          int sec = 50, min = 59, hour = 23;
+   5          
+   6          void timer0_init()
+   7          {
+   8   1        TMOD=TMOD&0xF0;
+   9   1        TMOD=TMOD|0x01;
+  10   1        TF0=0;
+  11   1        TR0=1;
+  12   1        TH0=64535/256;
+  13   1        TL0=(64535%256 + 1);
+  14   1        ET0=1;
+  15   1        EA=1;
+  16   1        PT0=0;
+  17   1      }
+  18          
+  19          //void timer0_test()
+  20          //{
+  21          //  LCD_ShowString(1,1,"Clock");
+  22          //  timer0_init();
+  23          //  
+  24          //  LCD_ShowString(2,1,"  :  :");
+  25          //  
+  26          //  while(1)
+  27          //  {
+  28          //    LCD_ShowNum(2,1,hour,2);
+  29          //    LCD_ShowNum(2,4,min,2);
+  30          //    LCD_ShowNum(2,7,sec,2);
+  31          //  }
+  32          //}
+  33          
+  34          
+  35          // 中断服务函数, 不占用 cpu
+  36          //void Timer0_Routine() interrupt 1
+  37          //{
+  38          //  int T0Count;
+  39          //  TH0=64535/256;
+  40          //  TL0=(64535%256 + 1);
+  41          //  T0Count++;
+  42          //  if(T0Count >= 1000)
+  43          //  {
+  44          //    T0Count = 0;
+  45          //    sec++;
+  46          //    if(sec >= 60)
+  47          //    {
+  48          //        sec = 0;
+  49          //        min++;
+  50          //        if(min >= 60)
+  51          //        {
+  52          //          min = 0;
+  53          //          hour++;
+  54          //          if( hour >= 24)
+C51 COMPILER V9.60.7.0   TIMER                                                             05/14/2023 23:51:31 PAGE 2   
+
+  55          //          {
+  56          //            hour = 0;
+  57          //          }
+  58          //        }
+  59          //    }
+  60          //  }
+  61          //}
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     23    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =      6    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

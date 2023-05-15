@@ -1,0 +1,19 @@
+".\Objects\STARTUP.obj",
+".\Objects\main.obj",
+".\Objects\delay.obj",
+".\Objects\nixie_tube.obj",
+".\Objects\LCD1602.obj",
+".\Objects\matrix.obj",
+".\Objects\timer.obj",
+".\Objects\uart.obj",
+".\Objects\dianzhen.obj",
+".\Objects\beep.obj",
+".\Objects\key.obj",
+".\Objects\at24c02.obj",
+".\Objects\pwm.obj",
+".\Objects\remote.obj",
+".\Objects\intrrupt.obj",
+".\Objects\demo.obj" 
+TO ".\Objects\Test" 
+PRINT(".\Listings\Test.m51") RAMSIZE(256) 
+DISABLEWARNING (16) 
